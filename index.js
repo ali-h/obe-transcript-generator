@@ -30,13 +30,13 @@ app.get('/database/:file', async (req, res) => {
 
   try {
     // get file from database
-    response = await fs.readFile(path.join(__dirname, 'temp', `${file}.json`));
+    response = await fs.readFile(path.join(__dirname, 'database', `${file}.json`));
   } catch (err) {
     // get file from default folder
     response = await fs.readFile(path.join(__dirname, 'defaults', `${file}.json`));
 
     // also save file to database folder
-    await fs.writeFile(path.join(__dirname, 'temp', `${file}.json`), response);
+    await fs.writeFile(path.join(__dirname, 'database', `${file}.json`), response);
   }
 
   // return file
@@ -51,7 +51,7 @@ app.delete('/database/:file/:id', async (req, res) => {
   const id = req.params.id;
 
   // get file from database
-  let response = await fs.readFile(path.join(__dirname, 'temp', `${file}.json`));
+  let response = await fs.readFile(path.join(__dirname, 'database', `${file}.json`));
 
   // parse file
   let data = JSON.parse(response);
@@ -65,7 +65,7 @@ app.delete('/database/:file/:id', async (req, res) => {
   }
 
   // save file to database
-  await fs.writeFile(path.join(__dirname, 'temp', `${file}.json`), JSON.stringify(data));
+  await fs.writeFile(path.join(__dirname, 'database', `${file}.json`), JSON.stringify(data));
 
   // return success
   res.json({ success: true });
@@ -80,7 +80,7 @@ app.put('/database/:file/:id', async (req, res) => {
   const data = req.body;
 
   // get file from database
-  let response = await fs.readFile(path.join(__dirname, 'temp', `${file}.json`));
+  let response = await fs.readFile(path.join(__dirname, 'database', `${file}.json`));
 
   // parse file
   let fileData = JSON.parse(response);
@@ -101,7 +101,7 @@ app.put('/database/:file/:id', async (req, res) => {
   }
 
   // save file to database
-  await fs.writeFile(path.join(__dirname, 'temp', `${file}.json`), JSON.stringify(fileData));
+  await fs.writeFile(path.join(__dirname, 'database', `${file}.json`), JSON.stringify(fileData));
 
   // return success
   res.json({ success: true });
@@ -116,7 +116,7 @@ app.post('/database/:file/:id', async (req, res) => {
   const data = req.body;
 
   // get file from database
-  let response = await fs.readFile(path.join(__dirname, 'temp', `${file}.json`));
+  let response = await fs.readFile(path.join(__dirname, 'database', `${file}.json`));
 
   // parse file
   let fileData = JSON.parse(response);
@@ -132,7 +132,7 @@ app.post('/database/:file/:id', async (req, res) => {
   }
   
   // save file to database
-  await fs.writeFile(path.join(__dirname, 'temp', `${file}.json`), JSON.stringify(fileData));
+  await fs.writeFile(path.join(__dirname, 'database', `${file}.json`), JSON.stringify(fileData));
 
   // return success
   res.json({ success: true });
@@ -146,7 +146,7 @@ app.post('/database/:file', async (req, res) => {
   const data = req.body;
 
   // save file to database
-  await fs.writeFile(path.join(__dirname, 'temp', `${file}.json`), JSON.stringify(data));
+  await fs.writeFile(path.join(__dirname, 'database', `${file}.json`), JSON.stringify(data));
 
   // return success
   res.json({ success: true });
@@ -159,7 +159,7 @@ app.get('/transcript/:id', async (req, res) => {
   const id = req.params.id;
 
   // get student data from database
-  const students = await fs.readFile(path.join(__dirname, 'temp', 'students.json'));
+  const students = await fs.readFile(path.join(__dirname, 'database', 'students.json'));
 
   // parse student data
   const studentData = JSON.parse(students);
@@ -169,7 +169,7 @@ app.get('/transcript/:id', async (req, res) => {
   const name = studentData[id].name;
 
   // get student marks data from database
-  const marks = await fs.readFile(path.join(__dirname, 'temp', 'marks.json'));
+  const marks = await fs.readFile(path.join(__dirname, 'database', 'marks.json'));
 
   // parse student marks data
   const marksData = JSON.parse(marks);
@@ -186,13 +186,13 @@ app.get('/transcript/:id', async (req, res) => {
   }
 
   // get course data from database
-  const courses = await fs.readFile(path.join(__dirname, 'temp', 'courses.json'));
+  const courses = await fs.readFile(path.join(__dirname, 'database', 'courses.json'));
 
   // parse course data
   const courseData = JSON.parse(courses);
 
   // load semester data from database (semesters.json)
-  const semesterData = await fs.readFile(path.join(__dirname, 'temp', 'semesters.json'));
+  const semesterData = await fs.readFile(path.join(__dirname, 'database', 'semesters.json'));
 
   // parse semester data
   const semesters = JSON.parse(semesterData);
@@ -325,6 +325,3 @@ app.get('/transcript/:id', async (req, res) => {
 // start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
-
-// setup for vercel
-module.exports = app;
