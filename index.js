@@ -1,4 +1,5 @@
 const express = require('express');
+const cors = require('cors');
 const path = require('path');
 const fs = require('fs').promises;
 const ExcelJS = require('exceljs');
@@ -8,19 +9,7 @@ const app = express();
 app.use(express.json());
 
 // CORS
-app.use((req, res, next) => {
-  // allow all origins
-  res.header('Access-Control-Allow-Origin', '*');
-
-  // allow all headers
-  res.header('Access-Control-Allow-Headers', '*');
-
-  // allow all methods
-  res.header('Access-Control-Allow-Methods', '*');
-
-  // continue
-  next();
-});
+app.use(cors());
 
 // resources folder
 app.use(express.static(path.join(__dirname, 'website')));
