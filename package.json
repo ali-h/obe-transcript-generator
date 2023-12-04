@@ -1,0 +1,27 @@
+{
+  "name": "obe-transcript-generator",
+  "version": "1.0.0",
+  "description": "obe transcript generator with customization built for kfueit",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "dev": "nodemon index.js"
+  },
+  "author": "Ali H",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ali-h/obe-transcript-generator.git"
+  },
+  "bugs": {
+    "url": "https://github.com/ali-h/obe-transcript-generator/issues"
+  },
+  "homepage": "https://github.com/ali-h/obe-transcript-generator#readme",
+  "license": "MIT",
+  "dependencies": {
+    "exceljs": "^4.4.0",
+    "express": "^4.18.2"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.4"
+  }
+}

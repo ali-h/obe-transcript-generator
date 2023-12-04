@@ -1,0 +1,22 @@
+{
+  "start_line": 4,
+  "name_cell": "A2",
+  "roll_no_cell": "D2",
+  "plo_columns": {
+    "PLO-1": "D",
+    "PLO-2": "E",
+    "PLO-3": "F",
+    "PLO-4": "G",
+    "PLO-5": "H",
+    "PLO-6": "I",
+    "PLO-7": "J",
+    "PLO-8": "K",
+    "PLO-9": "L",
+    "PLO-10": "M",
+    "PLO-11": "N",
+    "PLO-12": "O"
+  },
+  "sr_no_column": "A",
+  "course_code_column": "B",
+  "course_title_column": "C"
+}

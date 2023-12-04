@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>OBE Transcript Generator</title>
+  <link href="./lib/bootstrap-5.3.2/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
+  <script src="./lib/bootstrap-5.3.2/js/bootstrap.bundle.min.js" integrity="sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL" crossorigin="anonymous"></script>
+  <script src="./lib/jquery-3.7.1.min.js"></script>
+  
+
+  <link rel="stylesheet" href="./css/index.css">
+  <script src="./js/main.js"></script>
+</head>
+<body>
+  <!-- toast wrapper -->
+  <div class="d-flex flex-column gap-2 position-fixed top-0 end-0 p-3" id="toast_wrapper"></div>
+
+  <!-- navbar -->
+  <div class="container pt-4">
+    <h1 class="text-center">OBE Transcript Generator</h1>
+    <p class="text-center">Developed by Ali H @ KFUEIT</p>
+    <hr>
+    <div class="d-flex justify-content-center gap-3">
+      <button class="btn btn-primary nav_btn" name="students">Edit Sudents</button>
+      <button class="btn btn-primary nav_btn" name="courses">Edit Courses</button>
+      <button class="btn btn-primary nav_btn" name="marks">Edit Marks</button>
+      <button class="btn btn-primary nav_btn" name="semesters">Edit Semesters</button>
+    </div>
+    <hr>
+
+    <div id="loading">
+      <div class="d-flex justify-content-center mt-5">
+        <div class="spinner-border text-primary" style="width: 5rem; height: 5rem;"></div>
+      </div>
+    </div>
+    
+  </div>
+
+  
+
+  <!-- students page -->
+  <div class="d-none page" id="students">
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between">
+        <h3 class="text-left">Edit Students</h3>
+  
+        <div class="d-flex gap-1">
+          <button class="btn btn-primary" id="download_students">Download</button>
+          <button class="btn btn-success" id="upload_students">Upload</button>
+        </div>
+      </div>
+      <div class="mt-4">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="students_table">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
+  <script src="./js/students.js"></script>
+
+  <!-- courses page -->
+  <div class="d-none page" id="courses">
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between">
+        <h3 class="text-left">Edit Courses</h3>
+  
+        <div class="d-flex gap-1">
+          <button class="btn btn-primary" id="download_courses">Download</button>
+          <button class="btn btn-success" id="upload_courses">Upload</button>
+        </div>
+      </div>
+      <div class="mt-4">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Course Code</th>
+              <th>Course Name</th>
+              <th>PLOs</th>
+              <th style="text-align: right;">Action</th>
+            </tr>
+          </thead>
+          <tbody id="courses_table">
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/courses.js"></script>
+
+  <!-- marks page -->
+  <div class="d-none page" id="marks">
+    <div class="container mt-4">
+      <h3 class="text-left">Edit Marks</h3>
+      <div class="d-flex justify-content-between">
+        <div class="d-flex gap-2">
+          <select class="form-select" id="select_course">
+            <option value="null" selected hidden>Select Course</option>
+          </select>
+        </div>
+
+        <div class="d-flex gap-1">
+          <button class="btn btn-primary" id="download_marks" disabled>Download</button>
+          <button class="btn btn-success" id="upload_marks" disabled>Upload</button>
+        </div>
+      </div>
+      <div class="mt-4">
+        <table class="table table-striped table-hover">
+          <thead>
+            <tr>
+              <th>Sr.</th>
+              <th>Roll No.</th>
+              <th>Name</th>
+              <th>Marks</th>
+            </tr>
+          </thead>
+          <tbody id="course_marks_table">
+            <td colspan="4" class="text-center">....</td>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <script src="./js/marks.js"></script>
+
+  <!-- semesters page -->
+  <div class="d-none page" id="semesters">
+    <div class="container mt-4">
+      <div class="d-flex justify-content-between">
+        <h3 class="text-left">Edit Semesters</h3>
+      </div>
+
+      <div class="mt-4" id="semesters_tables"></div>
+    </div>
+  </div>
+  
+  <script src="./js/semesters.js"></script>
+</body>
+</html>

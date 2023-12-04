@@ -1,0 +1,19 @@
+/* fira sans font from local */
+@font-face {
+  font-family: 'Fira Sans';
+  src: url('../lib/FiraSans-Font.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
+
+body, html {
+  font-family: 'Fira Sans', sans-serif;
+  font-size: 16px;
+  position: relative;
+  margin: 0;
+}
+
+.active_nav {
+  background-color: #DC3D46;
+  border: #DC3D46 solid 1px;
+}
