@@ -321,3 +321,6 @@ app.get('/transcript/:id', async (req, res) => {
 // start server
 const PORT = process.env.PORT || 3000;
 app.listen(PORT, () => console.log(`Server started on port ${PORT}`));
+
+// setup for vercel
+module.exports = app;
